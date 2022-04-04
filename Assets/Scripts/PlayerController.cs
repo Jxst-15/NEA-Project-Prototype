@@ -1,27 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float _speed = 2f;
-    public float JumpForce = 1f;
-
-    private Rigidbody2D _rigidbody;
-
-    void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+    public float movementSpeed = 1f;
+    public float jumpForce = 1f; // Values for speed and jump
+    public bool onGround = false; // For GroundChecking 
 
     void Update()
     {
-        var _move = Input.GetAxis("Horizontal");
-        transform.position = transform.position + new Vector3(_move * _speed * Time.deltaTime, 0, 0);
+        Jump(); // Runs jump method
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // Creates Vector3 object 
+        transform.position += movement * Time.deltaTime * movementSpeed; // Actual movement in game
+    }
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+    void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && onGround == true) // Checks first if player on ground before allowing jump
         {
-            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 }
