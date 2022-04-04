@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float _speed = 2f; //Decides how fast player moves
-    public float JumpForce = 1f; //Decides how high player jumps
+    public float _speed = 2f;
+    public float JumpForce = 1f;
 
     private Rigidbody2D _rigidbody;
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>(); //Creates reference to Rigid Body
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        var _move = Input.GetAxis("Horizontal"); //Moving left and right
-        transform.position = transform.position + new Vector3(_move * _speed * Time.deltaTime, 0, 0); //Actual character moving
+        var _move = Input.GetAxis("Horizontal");
+        transform.position = transform.position + new Vector3(_move * _speed * Time.deltaTime, 0, 0);
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) //Jumping
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
-            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse); //Mechanic for jumping
+            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
     }
 }
