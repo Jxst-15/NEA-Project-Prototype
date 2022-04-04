@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Jump(); // Runs jump method
+        Jump(); // Runs jump function
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // Creates Vector3 object 
         transform.position += movement * Time.deltaTime * movementSpeed; // Actual movement in game
     }

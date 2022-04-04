@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
     public int Health = 100;
+    public int DmgMult = 0;
+    public int Stamina = 0;
+    public int Defence = 0;
+   
     int currentHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = Health;
     }
 
-    public void TakingDmg (int dmg)
+    public void TakingDmg (int Damage)
     {
-        currentHealth -= dmg;
+        currentHealth -= Damage;
 
         if(currentHealth <= 0)
         {
@@ -26,5 +27,7 @@ public class Stats : MonoBehaviour
     private void death()
     {
         Debug.Log("Dead");
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
     }
 }
