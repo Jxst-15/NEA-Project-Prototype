@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     public Transform attackPoint;
+    private GameObject target;
 
     public int LDamage = 10; 
     public int HDamage = 20; 
@@ -13,7 +14,7 @@ public class EnemyCombat : MonoBehaviour
        
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()

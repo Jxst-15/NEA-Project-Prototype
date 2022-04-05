@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void Attack() // Attack function
+    void Attack() // Attack method
     {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers); // Array to get how many enemies player hit
         
@@ -43,7 +43,7 @@ public class PlayerCombat : MonoBehaviour
         {
             foreach (Collider2D enemy in enemiesHit) // Goes through every enemy and deals damage
             {
-                enemy.GetComponent<Stats>().TakingDmg(LDamage);
+                enemy.GetComponent<EnemyStats>().TakingDmg(LDamage);
                 Debug.Log("Enemy hit (Light)");
             }
         }
@@ -51,14 +51,14 @@ public class PlayerCombat : MonoBehaviour
         {
             foreach (Collider2D enemy in enemiesHit)
             {
-                enemy.GetComponent<Stats>().TakingDmg(HDamage);
+                enemy.GetComponent<EnemyStats>().TakingDmg(HDamage);
                 Debug.Log("Enemy hit (Heavy)");
             }
         }
         nextAttack = Time.time + 1f / attackSpeed; // Next attack time is given 
     }
 
-    void Block()
+    void Block() // Block method
     {
         Collider2D[] enemiesBlocked = Physics2D.OverlapCircleAll(blockPoint.position, blockRange, enemyLayers); // Get how many enemies player is blocking
 

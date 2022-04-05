@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _renderer = GetComponent<SpriteRenderer>();
-        playerPosX = transform.localScale.x;
+        _renderer = GetComponent<SpriteRenderer>(); // Grabs the sprite
+        playerPosX = transform.localScale.x; // Values for transforming object on X axis
         playerPosY = transform.localScale.y;
         if (_renderer == null)
         {
@@ -25,12 +25,12 @@ public class PlayerController : MonoBehaviour
         Jump(); // Runs jump function
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // Creates Vector3 object 
         transform.position += movement * Time.deltaTime * movementSpeed; // Actual movement in game
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetAxisRaw("Horizontal") > 0) // If statements are for flipping the object on the X axis
         {
             _renderer.flipX = false;
             gameObject.transform.localScale = new Vector2(playerPosX, playerPosY);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else if (Input.GetAxisRaw("Horizontal") < 0) // Player moving left
         {
             _renderer.flipX = true;
             gameObject.transform.localScale = new Vector2(-playerPosX, playerPosY);
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && onGround == true) // Checks first if player on ground before allowing jump
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // Moves player off the ground
         }
     }
 }

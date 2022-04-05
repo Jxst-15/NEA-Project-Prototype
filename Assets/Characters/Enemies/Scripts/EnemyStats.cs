@@ -1,11 +1,8 @@
 using UnityEngine;
 
-public class Stats : MonoBehaviour
+public class EnemyStats : MonoBehaviour
 {
-    public int Health = 100;
-    public int DmgMult = 0;
-    public int Stamina = 0;
-    public int Defence = 0;
+    public int Health = 100; // Health
    
     int currentHealth;
 
@@ -14,7 +11,7 @@ public class Stats : MonoBehaviour
         currentHealth = Health;
     }
 
-    public void TakingDmg (int Damage)
+    public void TakingDmg (int Damage) // Enemy takes damage
     {
         currentHealth -= Damage;
 
@@ -24,10 +21,11 @@ public class Stats : MonoBehaviour
         }
     }
 
-    private void death()
+    private void death() // Enemy death
     {
-        Debug.Log("Dead");
         GetComponent<Collider2D>().enabled = false;
+        GetComponent<EnemyAI>().enabled = false;
         this.enabled = false;
+        Debug.Log("Dead");
     }
 }
