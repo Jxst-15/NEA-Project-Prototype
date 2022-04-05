@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
+    public Transform blockPoint;
     public LayerMask enemyLayers;
 
     public int LDamage = 10; // Light attack damage num
@@ -11,6 +12,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0f; // How far character can hit
     public float attackSpeed = 2f; // How fast character can attack (Attack rate)
     float nextAttack = 0f; // When player can next attack
+
+    public float blockRange = 0f;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +25,12 @@ public class PlayerCombat : MonoBehaviour
                 Attack(); 
                 //nextAttack = Time.time + 1f / attackSpeed;
             }
+        }
+
+        if (Input.GetKey(KeyCode.H)) // Blocking feature
+        {
+            Debug.Log("Blocking");
+            Block();
         }
     }
 
@@ -47,6 +56,16 @@ public class PlayerCombat : MonoBehaviour
             }
         }
         nextAttack = Time.time + 1f / attackSpeed; // Next attack time is given 
+    }
+
+    void Block()
+    {
+        Collider2D[] enemiesBlocked = Physics2D.OverlapCircleAll(blockPoint.position, blockRange, enemyLayers); // Get how many enemies player is blocking
+
+        foreach (Collider2D enemy in enemiesBlocked)
+        {
+            Debug.Log("Attack Blocked");
+        }
     }
 
     void OnDrawGizmosSelected() // Helps with determining attacking range
