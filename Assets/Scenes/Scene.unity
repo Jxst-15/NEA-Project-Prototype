@@ -449,16 +449,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a19569eb61af894194653680789d810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  Espeed: 3
   target: {fileID: 943858695}
   Player:
     serializedVersion: 2
     m_Bits: 128
   minDistance: 2
   attackPointE: {fileID: 521241493}
-  Dmg: 5
+  LDamage: 5
+  HDamage: 10
   attackRangeE: 0.87
-  attackSpeedE: 1
+  attackSpeedE: 1.5
 --- !u!1 &1477956808
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,12 +748,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4164027416261935540, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164027416261935540, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4164027417484263118, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164027417484263122, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164027417484263124, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
       propertyPath: target
@@ -761,6 +770,10 @@ PrefabInstance:
     - target: {fileID: 4164027417484263125, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164027417484263125, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4164027417484263125, guid: 2f25ad74b979bae41806d136ebd6f4d6, type: 3}
       propertyPath: m_LocalPosition.x

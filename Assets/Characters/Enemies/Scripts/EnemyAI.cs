@@ -3,15 +3,16 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     private SpriteRenderer _renderer;
-    private float enemyPosX, enemyPosY;
+    private float enemyScaleX, enemyScaleY;
 
-    public float speed;
+    public float Espeed; // Enemy movement speed
     public Transform target; // Holds the target player to chase
-    public LayerMask Player;
-    public float minDistance;
+    public LayerMask Player; // Targeting player layer
+    public float minDistance; // Minimum distance that enemy can be from player
 
     public Transform attackPointE;
-    public int Dmg = 5;
+    public int LDamage = 5;
+    public int HDamage = 10;
     public float attackRangeE = 0f;
     public float attackSpeedE = 2f;
     float nextAttackE = 0f;
@@ -19,22 +20,22 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>(); 
-        enemyPosX = transform.localScale.x;
-        enemyPosY = transform.localScale.y;
+        enemyScaleX = transform.localScale.x;
+        enemyScaleY = transform.localScale.y;
         if (_renderer == null)
         {
             Debug.Log("Enemy Sprite missing");
         }
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();   
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // Finds the player and assigns it to target   
     }
 
     void Update()
-    {
+    {   
         if (Vector2.Distance(transform.position, target.position) > minDistance) // Sees how far player is
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); // Moves enemy character towards the player 
+            transform.position = Vector2.MoveTowards(transform.position, target.position, Espeed * Time.deltaTime); // Moves enemy character towards the player 
         }
-        else
+        else // if distance less than or equal to minDistance
         {
             if (Time.time >= nextAttackE) // Prevents spam attacks
             {
@@ -42,17 +43,40 @@ public class EnemyAI : MonoBehaviour
                 nextAttackE = Time.time + 1f / attackSpeedE;
             }
         }
+
+        if (transform.position.x < target.position.x) // The following flips the enemy sprite so it can attack/ follow the right way
+        {
+            _renderer.flipX = true;
+            gameObject.transform.localScale = new Vector2(-enemyScaleX, -enemyScaleY);
+        }
+        else if (transform.position.x > target.position.x)
+        {
+            _renderer.flipX = false;
+            gameObject.transform.localScale = new Vector2(enemyScaleX, enemyScaleY);
+        }
     }
 
     void EnemyAttack() // Attack method
     {
         Collider2D[] playerHit = Physics2D.OverlapCircleAll(attackPointE.position, attackRangeE, Player);
+        
+        int dmgRoll = Random.Range(1, 6); // Decides if enemy attack is heavy or not
 
-        foreach (Collider2D player in playerHit)
+        if (dmgRoll == 1 || dmgRoll == 2 || dmgRoll == 3) // Light attacks
         {
-            target.GetComponent<PlayerStats>().TakingDmg(Dmg);
-            Debug.Log("Player hit");
-
+            foreach (Collider2D player in playerHit)
+            {
+                target.GetComponent<PlayerStats>().TakingDmg(LDamage);
+                Debug.Log("Player hit (Light)");
+            }
+        }
+        else // Heavy attacks
+        {
+            foreach (Collider2D player in playerHit)
+            {
+                target.GetComponent<PlayerStats>().TakingDmg(HDamage);
+                Debug.Log("Player hit (Heavy)");
+            }
         }
     }
 

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 1f;
-    public float jumpForce = 1f; // Values for speed and jump
+    public float movementSpeed = 1f; // Values for speed and jump
+    public float jumpForce = 1f; 
     public bool onGround = false; // For GroundChecking 
     
     private SpriteRenderer _renderer;
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         Jump(); // Runs jump function
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); // Creates Vector3 object 
         transform.position += movement * Time.deltaTime * movementSpeed; // Actual movement in game
+        
         if (Input.GetAxisRaw("Horizontal") > 0) // If statements are for flipping the object on the X axis
         {
             _renderer.flipX = false;
@@ -44,4 +45,5 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // Moves player off the ground
         }
     }
+
 }
