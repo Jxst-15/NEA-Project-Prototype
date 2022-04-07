@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    public int Health = 100; // Health
+    public int Health = 350; // Health
    
     int currentHealth;
 
@@ -26,6 +26,6 @@ public class EnemyStats : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         this.enabled = false;
-        Debug.Log("Dead");
+        Debug.Log("Enemy died");
     }
 }

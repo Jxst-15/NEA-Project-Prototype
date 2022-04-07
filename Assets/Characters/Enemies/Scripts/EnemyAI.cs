@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("Enemy Sprite missing");
         }
+        Physics2D.IgnoreLayerCollision(8, 7, true);
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // Finds the player and assigns it to target   
     }
 

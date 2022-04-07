@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int Health = 100; // Various stats
-    public int DmgMult = 0;
+    public int Health = 450; // Various stats
+    public static int LDamage = 30; // Light attack damage num
+    public static int HDamage = 50; // Heavy attack damage num
     public int Stamina = 0;
     public int Defence = 0;
 

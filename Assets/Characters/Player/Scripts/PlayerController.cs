@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player Sprite missing");
         }
+        Physics2D.IgnoreLayerCollision(7, 8, true);
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && onGround == true) // Checks first if player on ground before allowing jump
+        if (Input.GetButtonDown("Vertical") && onGround == true) // Checks first if player on ground before allowing jump
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // Moves player off the ground
         }
