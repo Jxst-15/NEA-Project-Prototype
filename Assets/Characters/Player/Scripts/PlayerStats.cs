@@ -17,11 +17,14 @@ public class PlayerStats : MonoBehaviour
 
     public void TakingDmg(int Damage) // Player loses health
     {
-        currentHealth -= Damage;
-
-        if (currentHealth <= 0)
+        if (PlayerCombat.blocking == false)
         {
-            death();
+            currentHealth -= Damage;
+
+            if (currentHealth <= 0)
+            {
+                death();
+            }
         }
     }
 

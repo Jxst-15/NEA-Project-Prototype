@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         {
             _renderer.flipX = true;
             gameObject.transform.localScale = new Vector2(-playerPosX, playerPosY);
-        }
+        } 
     }
 
     void Jump()
