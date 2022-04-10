@@ -35,7 +35,8 @@ public class EnemyAI : MonoBehaviour
     {   
         if (Vector2.Distance(transform.position, target.position) > minDistance) // Sees how far player is
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, Espeed * Time.deltaTime); // Moves enemy character towards the player 
+            Vector2 xTarget = new Vector2(target.position.x, transform.position.y); // Makes sure enemy only chases on the X axis
+            transform.position = Vector2.MoveTowards(transform.position, xTarget, Espeed * Time.deltaTime); // Moves enemy character towards the player 
         }
         else // if distance less than or equal to minDistance
         {
