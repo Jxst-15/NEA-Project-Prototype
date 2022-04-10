@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    doubleTapTime = Time.time + 0.5f;
+                    doubleTapTime = Time.time + 0.3f;
                 }
                 lastKey = KeyCode.D;
             }
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    doubleTapTime = Time.time + 0.5f; // If not then doubleTapTime is equal to time elapsed + 0.5
+                    doubleTapTime = Time.time + 0.3f; // If not then doubleTapTime is equal to time elapsed + the time to double tap
                 }
                 lastKey = KeyCode.A; // last key pressed is set to A
             }

@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     public int Defence = 0;
 
     int currentHealth;
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -20,9 +21,11 @@ public class PlayerStats : MonoBehaviour
         if (PlayerCombat.blocking == false)
         {
             currentHealth -= Damage;
+            healthBar.SetHealth(currentHealth);
 
             if (currentHealth <= 0)
             {
+                healthBar.SetHealth(0);
                 death();
             }
         }

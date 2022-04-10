@@ -14,6 +14,7 @@ public class Pausing : MonoBehaviour
         if (paused == true)
         {
             Time.timeScale = 0f;
+            paused = true;
         }
     }
 }
