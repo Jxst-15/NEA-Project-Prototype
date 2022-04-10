@@ -8,16 +8,12 @@ public class Pausing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (paused)
-            {
-               Time.timeScale = 1;
-            }
-            else
-            {
-               Time.timeScale = 0;
-               Debug.Log("Paused");
-            }
             paused = !paused;
+        }
+
+        if (paused == true)
+        {
+            Time.timeScale = 0f;
         }
     }
 }
