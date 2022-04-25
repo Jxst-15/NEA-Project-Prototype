@@ -10,6 +10,11 @@ public class Pausing : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) // If ESC key pressed
         {
             paused = !paused;
+            if (paused == false && !PlayerStats.dead) // Only if player is not dead else, player no longer able to move
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().enabled = true;
+            }
         }
 
         if (paused == true)
@@ -21,8 +26,6 @@ public class Pausing : MonoBehaviour
         }
         else
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().enabled = true;
             pauseMenu.SetActive(false); // Disables pause menu UI
         }
     }

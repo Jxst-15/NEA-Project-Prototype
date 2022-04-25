@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     int currentHealth;
     public HealthBar healthBar;
 
+    public static bool dead = false;
+
     void Start()
     {
         currentHealth = Health;
@@ -33,6 +35,7 @@ public class PlayerStats : MonoBehaviour
 
     private void death() // Player death, player is disabled and can no longer play game
     {
+        dead = true;
         GetComponent<PlayerController>().enabled = false;
         GetComponent<PlayerCombat>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
