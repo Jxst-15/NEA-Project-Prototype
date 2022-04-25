@@ -114,6 +114,7 @@ public class PlayerCombat : MonoBehaviour
             //DmgMult = 0.25f;
             PlayerStats.LDamage = 23;
             PlayerStats.HDamage = 38;
+            attackSpeed = 3.5f;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -121,6 +122,7 @@ public class PlayerCombat : MonoBehaviour
             //DmgMult = 0.40f;
             PlayerStats.LDamage = 42;
             PlayerStats.HDamage = 70;
+            attackSpeed = 1.5f;
         }
     }
 

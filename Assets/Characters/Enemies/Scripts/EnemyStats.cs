@@ -6,6 +6,8 @@ public class EnemyStats : MonoBehaviour
    
     int currentHealth;
 
+    public GameObject hitBlink;
+
     void Start()
     {
         currentHealth = Health;
@@ -14,11 +16,22 @@ public class EnemyStats : MonoBehaviour
     public void TakingDmg (int Damage) // Enemy takes damage
     {
         currentHealth -= Damage;
+        Invoke("EHitBlink", 0f);
+        Invoke("DHitBlink", 0.1f);
 
         if(currentHealth <= 0)
         {
             death();
         }
+    }
+
+    private void EHitBlink()
+    {
+        hitBlink.SetActive(true);
+    }
+    private void DHitBlink()
+    {
+        hitBlink.SetActive(false);
     }
 
     private void death() // Enemy death
