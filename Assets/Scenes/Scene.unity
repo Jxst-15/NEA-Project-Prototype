@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 786646489}
   - component: {fileID: 786646488}
   m_Layer: 6
-  m_Name: Visual
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1531,7 +1531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9013207992991401108, guid: b20792224a3438f4b99df08142dad51d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9013207992991401108, guid: b20792224a3438f4b99df08142dad51d, type: 3}
       propertyPath: m_AnchorMax.x
