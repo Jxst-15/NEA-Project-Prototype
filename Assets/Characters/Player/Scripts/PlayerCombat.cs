@@ -5,10 +5,6 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public Transform blockPoint;
     public LayerMask enemyLayers;
-
-    //public int LDamage = 30; // Light attack damage num
-    //public int HDamage = 50; // Heavy attack damage num
-    //public float DmgMult = 1f;
     
     public float attackRange = 0f; // How far character can hit
     public float attackSpeed = 2f; // How fast character can attack (Attack rate)
@@ -28,7 +24,6 @@ public class PlayerCombat : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
             {
                 Attack();
-                //nextAttack = Time.time + 1f / attackSpeed;
             }
         }
 
@@ -104,14 +99,12 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow)) 
         {
             style = "Style 1";
-            //DmgMult = 1f;
             PlayerStats.LDamage = 30;
             PlayerStats.HDamage = 50;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             style = "Style 2";
-            //DmgMult = 0.25f;
             PlayerStats.LDamage = 23;
             PlayerStats.HDamage = 38;
             attackSpeed = 3.5f;
@@ -119,7 +112,6 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             style = "Style 3";
-            //DmgMult = 0.40f;
             PlayerStats.LDamage = 42;
             PlayerStats.HDamage = 70;
             attackSpeed = 1.5f;
