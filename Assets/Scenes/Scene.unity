@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -264,6 +265,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225935427bef3e8498d062d637fcf3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -349,8 +362,8 @@ GameObject:
   - component: {fileID: 554524091}
   - component: {fileID: 554524093}
   - component: {fileID: 554524092}
-  m_Layer: 6
-  m_Name: Control Text
+  m_Layer: 5
+  m_Name: Controls Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,8 +410,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "W - Jump\nA - Left\nD - Right\nDouble Tap (A/D) - Dash\nHold (H) - Block\nJ
     - Light Attack\nK - Heavy Attack \nHold (LSHIFT) - Style Switcher\nUP - Style
-    1 (Moderate DMG)\nLeft - Style 2 (Weaker DMG)\nRight - Style 3 (High DMG)\nESC
-    - Pause/Unpause"
+    1 (Moderate DMG Normal Speed)\nLeft - Style 2 (Weaker DMG \nFast Speed)\nRight
+    - Style 3 (High DMG \nSlow Speed)\nESC - Pause/Unpause\nSPACE - Reload Scene"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -487,7 +500,7 @@ GameObject:
   - component: {fileID: 786646490}
   - component: {fileID: 786646489}
   - component: {fileID: 786646488}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +671,7 @@ GameObject:
   - component: {fileID: 1186216843}
   - component: {fileID: 1186216845}
   - component: {fileID: 1186216844}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Pause Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1052,7 @@ GameObject:
   - component: {fileID: 2032402923}
   - component: {fileID: 2032402925}
   - component: {fileID: 2032402924}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Prototype Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1186,7 @@ GameObject:
   - component: {fileID: 2038210738}
   - component: {fileID: 2038210740}
   - component: {fileID: 2038210739}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1505,6 +1518,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.10000038
       objectReference: {fileID: 0}
+    - target: {fileID: 9013207992357985761, guid: b20792224a3438f4b99df08142dad51d, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9013207992944706512, guid: b20792224a3438f4b99df08142dad51d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 937.22
@@ -1512,6 +1529,10 @@ PrefabInstance:
     - target: {fileID: 9013207992944706512, guid: b20792224a3438f4b99df08142dad51d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.016376495
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013207992944706513, guid: b20792224a3438f4b99df08142dad51d, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9013207992944706527, guid: b20792224a3438f4b99df08142dad51d, type: 3}
       propertyPath: m_Sprite
@@ -1608,6 +1629,10 @@ PrefabInstance:
     - target: {fileID: 9013207992991401109, guid: b20792224a3438f4b99df08142dad51d, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013207992991401109, guid: b20792224a3438f4b99df08142dad51d, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b20792224a3438f4b99df08142dad51d, type: 3}
