@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Espeed: 3
-  target: {fileID: 0}
+  target: {fileID: 3057110886884658723, guid: f4e4f6f401f53774a8ee5be1eb734628, type: 3}
   Player:
     serializedVersion: 2
     m_Bits: 128

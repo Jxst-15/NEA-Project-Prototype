@@ -5,10 +5,8 @@ public class PlayerStats : MonoBehaviour
     public int Health = 450; // Various stats
     public static int LDamage = 30; // Light attack damage num
     public static int HDamage = 50; // Heavy attack damage num
-    public int Stamina = 0;
-    public int Defence = 0;
 
-    int currentHealth;
+    private int currentHealth;
     public HealthBar healthBar;
 
     public static bool dead = false;

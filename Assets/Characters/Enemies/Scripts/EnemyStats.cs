@@ -4,7 +4,7 @@ public class EnemyStats : MonoBehaviour
 {
     public int Health = 350; // Health
    
-    int currentHealth;
+    private int currentHealth;
 
     public GameObject hitBlink;
 

@@ -4,6 +4,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public Transform blockPoint;
+    public BoxCollider2D Back;
     public LayerMask enemyLayers;
     
     public float attackRange = 0f; // How far character can hit
@@ -94,7 +95,12 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void StyleSwitch() // Switching combat styles (Currently only affects attack)
+    private void OnTriggerEnter2D(Collider2D Back)
+    {
+        Debug.Log("Enemy behind");
+    }
+
+    void StyleSwitch() // Switching combat styles (Affects damage and attack speed)
     {
         if (Input.GetKeyDown(KeyCode.UpArrow)) 
         {
