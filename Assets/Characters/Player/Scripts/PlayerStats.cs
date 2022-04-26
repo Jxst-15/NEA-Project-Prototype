@@ -12,9 +12,11 @@ public class PlayerStats : MonoBehaviour
     public HealthBar healthBar;
 
     public static bool dead = false;
+    public GameObject deathScreen;
 
     void Start()
     {
+        deathScreen.SetActive(false);
         currentHealth = Health;
     }
 
@@ -36,6 +38,7 @@ public class PlayerStats : MonoBehaviour
     private void death() // Player death, player is disabled and can no longer play game
     {
         dead = true;
+        deathScreen.SetActive(true);
         GetComponent<PlayerController>().enabled = false;
         GetComponent<PlayerCombat>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
