@@ -845,9 +845,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3017324864694966265, guid: e6e74e775f874de4a84e557a87a90d19, type: 3}
+      propertyPath: HDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017324864694966265, guid: e6e74e775f874de4a84e557a87a90d19, type: 3}
+      propertyPath: LDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3017324864694966266, guid: e6e74e775f874de4a84e557a87a90d19, type: 3}
       propertyPath: m_Name
       value: Basic Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017324864694966266, guid: e6e74e775f874de4a84e557a87a90d19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6e74e775f874de4a84e557a87a90d19, type: 3}
@@ -1175,6 +1187,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654657810}
   m_CullTransparentMesh: 1
+--- !u!1 &1842960917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2005925972042136737, guid: f4e4f6f401f53774a8ee5be1eb734628, type: 3}
+  m_PrefabInstance: {fileID: 3057110887828515364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1842960919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842960917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dadabc2d6653ac498004890a50db704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1878028358
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     public float attackRangeE = 0f;
     public float attackSpeedE = 2f;
     float nextAttackE = 0f;
+    public static bool attacking = false;
     
     void Start()
     {
@@ -33,8 +34,9 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {   
-        if (Vector2.Distance(transform.position, target.position) > minDistance) // Sees how far player is
+        if (Vector2.Distance(transform.position, target.position) > minDistance) // Sees how far player is (if player is not in range)
         {
+            attacking = false;
             Vector2 xTarget = new Vector2(target.position.x, transform.position.y); // Makes sure enemy only chases on the X axis
             transform.position = Vector2.MoveTowards(transform.position, xTarget, Espeed * Time.deltaTime); // Moves enemy character towards the player 
         }
@@ -61,6 +63,7 @@ public class EnemyAI : MonoBehaviour
 
     void EnemyAttack() // Attack method
     {
+        attacking = true;
         Collider2D[] playerHit = Physics2D.OverlapCircleAll(attackPointE.position, attackRangeE, Player);
         
         int dmgRoll = Random.Range(1, 6); // Decides if enemy attack is heavy or not

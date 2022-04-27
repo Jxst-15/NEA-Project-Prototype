@@ -4,13 +4,14 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public Transform blockPoint;
-    public BoxCollider2D Back;
+    //public BoxCollider2D Back;
     public LayerMask enemyLayers;
     
     public float attackRange = 0f; // How far character can hit
     public float attackSpeed = 2f; // How fast character can attack (Attack rate)
     float nextAttack = 0f; // When player can next attack
     bool attacking = true;
+    // public static bool enemyBehind = false;
 
     public float blockRange = 0f;
     public static bool blocking = false;
@@ -84,7 +85,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in enemiesBlocked)
         {
             blocking = true; // All attacks from enemies are negated
-            Debug.Log("Attack Blocked");
+            //Debug.Log("Attack Blocked");
         }
         
         if (enemiesBlocked.Length == 0) // If no enemies in range of block
@@ -95,10 +96,12 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D Back)
-    {
-        Debug.Log("Enemy behind");
-    }
+    //private void OnTriggerEnter2D(Collider2D Back) // Checks to see if enemy is behind player
+    //{
+    //    enemyBehind = true; // Sets value to true
+        
+    //    Debug.Log("Enemy behind");
+    //}
 
     void StyleSwitch() // Switching combat styles (Affects damage and attack speed)
     {

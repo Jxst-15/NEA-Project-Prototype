@@ -33,6 +33,18 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void TakingDmgBack(int Damage) // Method for player losing health if attacked from behind
+    {
+        currentHealth -= Damage;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            healthBar.SetHealth(0);
+            death();
+        }
+    }
+
     private void death() // Player death, player is disabled and can no longer play game
     {
         dead = true;
