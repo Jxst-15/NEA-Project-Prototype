@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     public float attackRangeE = 0f;
     public float attackSpeedE = 2f;
     float nextAttackE = 0f;
-    public static bool attacking = false;
+    public bool attacking = false;
     
     void Start()
     {

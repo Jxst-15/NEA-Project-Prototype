@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakingDmg(int Damage) // Player loses health
     {
-        if (PlayerCombat.blocking == false)
+        if (gameObject.GetComponent<PlayerCombat>().blocking == false)
         {
             currentHealth -= Damage;
             healthBar.SetHealth(currentHealth);

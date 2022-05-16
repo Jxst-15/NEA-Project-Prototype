@@ -39,6 +39,7 @@ public class EnemyStats : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         this.enabled = false;
+        Destroy(gameObject, 1f);
         Debug.Log("Enemy died");
     }
 }

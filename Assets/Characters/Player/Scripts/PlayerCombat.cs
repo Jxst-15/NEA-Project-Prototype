@@ -4,6 +4,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public Transform blockPoint;
+    public Transform back;
     //public BoxCollider2D Back;
     public LayerMask enemyLayers;
     
@@ -14,7 +15,9 @@ public class PlayerCombat : MonoBehaviour
     // public static bool enemyBehind = false;
 
     public float blockRange = 0f;
-    public static bool blocking = false;
+    public bool blocking = false;
+
+    public float backRange = 0f;
 
     string style = "Style 1";
 
@@ -81,6 +84,7 @@ public class PlayerCombat : MonoBehaviour
     {
         attacking = false; // Player can no longer attack when blocking
         Collider2D[] enemiesBlocked = Physics2D.OverlapCircleAll(blockPoint.position, blockRange, enemyLayers); // Get how many enemies player is blocking
+        Collider2D[] enemiesBehind = Physics2D.OverlapCircleAll(back.position, backRange, enemyLayers);
 
         foreach (Collider2D enemy in enemiesBlocked)
         {
@@ -94,14 +98,14 @@ public class PlayerCombat : MonoBehaviour
             attacking = true;
             return;
         }
-    }
 
-    //private void OnTriggerEnter2D(Collider2D Back) // Checks to see if enemy is behind player
-    //{
-    //    enemyBehind = true; // Sets value to true
-        
-    //    Debug.Log("Enemy behind");
-    //}
+        foreach (Collider2D enemy in enemiesBehind)
+        {
+            //Debug.Log("Enemy Behind");
+            // Enemies that are behind should be allowed to attack if player is blocking
+            // deal damage to player
+        }
+    }
 
     void StyleSwitch() // Switching combat styles (Affects damage and attack speed)
     {
@@ -131,8 +135,11 @@ public class PlayerCombat : MonoBehaviour
     {
         if (attackPoint == null) // If no attack point/ not attacking, then no attack point given
             return;
+        if (back == null)
+            return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange); // Draws attack range
+        Gizmos.DrawWireSphere(back.position, backRange);
     }
 
 }
