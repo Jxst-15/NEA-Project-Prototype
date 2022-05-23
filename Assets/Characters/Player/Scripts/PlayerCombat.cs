@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    #region variables
     public Transform attackPoint;
     public Transform blockPoint;
     public Transform back;
-    //public BoxCollider2D Back;
     public LayerMask enemyLayers;
     
     public float attackRange = 0f; // How far character can hit
     public float attackSpeed = 2f; // How fast character can attack (Attack rate)
     float nextAttack = 0f; // When player can next attack
     bool attacking = true;
-    // public static bool enemyBehind = false;
 
     public float blockRange = 0f;
     public bool blocking = false;
@@ -20,6 +19,7 @@ public class PlayerCombat : MonoBehaviour
     public float backRange = 0f;
 
     string style = "Style 1";
+    #endregion
 
     // Update is called once per frame
     void Update()
@@ -84,12 +84,11 @@ public class PlayerCombat : MonoBehaviour
     {
         attacking = false; // Player can no longer attack when blocking
         Collider2D[] enemiesBlocked = Physics2D.OverlapCircleAll(blockPoint.position, blockRange, enemyLayers); // Get how many enemies player is blocking
-        Collider2D[] enemiesBehind = Physics2D.OverlapCircleAll(back.position, backRange, enemyLayers);
+        //Collider2D[] enemiesBehind = Physics2D.OverlapCircleAll(back.position, backRange, enemyLayers);
 
         foreach (Collider2D enemy in enemiesBlocked)
         {
             blocking = true; // All attacks from enemies are negated
-            //Debug.Log("Attack Blocked");
         }
         
         if (enemiesBlocked.Length == 0) // If no enemies in range of block
@@ -99,12 +98,12 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
 
-        foreach (Collider2D enemy in enemiesBehind)
-        {
-            //Debug.Log("Enemy Behind");
-            // Enemies that are behind should be allowed to attack if player is blocking
-            // deal damage to player
-        }
+        //foreach (Collider2D enemy in enemiesBehind)
+        //{
+        //    //Debug.Log("Enemy Behind");
+        //    // Enemies that are behind should be allowed to attack if player is blocking
+        //    // deal damage to player
+        //}
     }
 
     void StyleSwitch() // Switching combat styles (Affects damage and attack speed)

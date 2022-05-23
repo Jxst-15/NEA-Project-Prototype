@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region variables
     public float movementSpeed = 1f; // Values for speed and jump
     public float jumpForce = 1f; 
     public bool onGround = false; // For GroundChecking 
@@ -10,13 +11,15 @@ public class PlayerController : MonoBehaviour
     private float playerPosX, playerPosY;
     private Rigidbody2D rb;
 
-    float doubleTapTime;
-    KeyCode lastKey;
+    float doubleTapTime; // For dash 
+    KeyCode lastKey; // Stores last key pressed for dashing
 
     public float dashSpeed;
-    private float dashCount;
+    private float dashCount; // How long player dashes for
     public float startDashCount;
-    private int side;
+    
+    private int side; // Stores which side player is facing
+    #endregion
 
     private void Start()
     {
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.localScale = new Vector2(playerPosX, playerPosY);
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (doubleTapTime > Time.time && lastKey == KeyCode.D)
+                if (doubleTapTime > Time.time && lastKey == KeyCode.D) 
                 {
                     side = 2;
                 }

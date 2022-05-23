@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    #region variables
     public int Health = 450; // Various stats
+    private int currentHealth;
+    public static bool dead = false;
+    
     public static int LDamage = 30; // Light attack damage num
     public static int HDamage = 50; // Heavy attack damage num
 
-    private int currentHealth;
     public HealthBar healthBar;
-
-    public static bool dead = false;
-    public GameObject deathScreen;
+    public GameObject deathScreen; // Death screen
+    #endregion
 
     void Start()
     {
@@ -20,12 +22,12 @@ public class PlayerStats : MonoBehaviour
 
     public void TakingDmg(int Damage) // Player loses health
     {
-        if (gameObject.GetComponent<PlayerCombat>().blocking == false)
+        if (gameObject.GetComponent<PlayerCombat>().blocking == false) // If player not blocking then enemy attacks damage player else no damage taken
         {
             currentHealth -= Damage;
             healthBar.SetHealth(currentHealth);
 
-            if (currentHealth <= 0)
+            if (currentHealth <= 0) // If health reaches 0 then player is defeated
             {
                 healthBar.SetHealth(0);
                 death();
@@ -33,17 +35,17 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void TakingDmgBack(int Damage) // Method for player losing health if attacked from behind
-    {
-        currentHealth -= Damage;
-        healthBar.SetHealth(currentHealth);
+    //public void TakingDmgBack(int Damage) // Method for player losing health if attacked from behind
+    //{
+    //    currentHealth -= Damage;
+    //    healthBar.SetHealth(currentHealth);
 
-        if (currentHealth <= 0)
-        {
-            healthBar.SetHealth(0);
-            death();
-        }
-    }
+    //    if (currentHealth <= 0)
+    //    {
+    //        healthBar.SetHealth(0);
+    //        death();
+    //    }
+    //}
 
     private void death() // Player death, player is disabled and can no longer play game
     {

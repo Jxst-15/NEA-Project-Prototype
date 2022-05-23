@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    #region variables
     private SpriteRenderer _renderer;
     private float enemyScaleX, enemyScaleY;
 
@@ -10,24 +11,25 @@ public class EnemyAI : MonoBehaviour
     public LayerMask Player; // Targeting player layer
     public float minDistance; // Minimum distance that enemy can be from player
 
-    public Transform attackPointE;
-    public int LDamage = 5;
+    public Transform attackPointE; // Where enemy's attack object is to determine range and area
+    public int LDamage = 5; // Damage 
     public int HDamage = 10;
-    public float attackRangeE = 0f;
-    public float attackSpeedE = 2f;
+    public float attackRangeE = 0f; // How far enemy can attack
+    public float attackSpeedE = 2f; // How fast enemy can attack
     float nextAttackE = 0f;
     public bool attacking = false;
-    
+    #endregion
+
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>(); 
-        enemyScaleX = transform.localScale.x;
+        enemyScaleX = transform.localScale.x; 
         enemyScaleY = transform.localScale.y;
         if (_renderer == null)
         {
             Debug.Log("Enemy Sprite missing");
         }
-        Physics2D.IgnoreLayerCollision(8, 7, true);
+        Physics2D.IgnoreLayerCollision(8, 7, true); 
         Physics2D.IgnoreLayerCollision(8, 8, true);
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // Finds the player and assigns it to target   
     }
@@ -45,7 +47,7 @@ public class EnemyAI : MonoBehaviour
             if (Time.time >= nextAttackE) // Prevents spam attacks
             {
                 EnemyAttack();
-                nextAttackE = Time.time + 1f / attackSpeedE;
+                nextAttackE = Time.time + 1f / attackSpeedE; // Determines next attack
             }
         }
 
@@ -70,7 +72,7 @@ public class EnemyAI : MonoBehaviour
 
         if (dmgRoll == 1 || dmgRoll == 2 || dmgRoll == 3) // Light attacks
         {
-            foreach (Collider2D player in playerHit)
+            foreach (Collider2D player in playerHit) // For each player in range of enemy when hit
             {
                 target.GetComponent<PlayerStats>().TakingDmg(LDamage);
                 Debug.Log("Player hit (Light)");

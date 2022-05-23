@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Pausing : MonoBehaviour
 {
-    public bool paused = false;
-    public GameObject pauseMenu;
+    #region variables
+    public bool paused = false; // Bool for if paused game
+    public GameObject pauseMenu; // Gameobject for the pause menu screen
+    #endregion
 
     void Update()
     {
